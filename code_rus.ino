@@ -12,6 +12,8 @@ const char* ddnsKey = "КЛЮЧ"; // Замените на ваш ключ ddns
 
 WebServer server(80); // Порт
 
+const char* ddns_name = "ваш провайдер ddns, например, 'duckdns'" // Указываем сервис DuckDNS
+
 // Массив для хранения пожеланий
 String wishes[100]; // Максимум 100 пожеланий
 int wishCount = 0;  // Счётчик пожеланий
@@ -74,7 +76,7 @@ void setup() {
   Serial.println(WiFi.localIP());
 
   // Настройка EasyDDNS
-  EasyDDNS.service("duckdns"); // Указываем сервис DuckDNS
+  EasyDDNS.service(ddns_name); // Указываем сервис DuckDNS
   EasyDDNS.client(ddnsDomain, ddnsKey); // Указываем домен и ключ
 
   // Настройка маршрутов сервера
